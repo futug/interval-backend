@@ -50,7 +50,8 @@ jobs:
             docker-compose pull
             docker-compose up -d
 
-            - name: Debug
+      
+      - name: Debug
         run: echo "EC2_KEY length: ${#EC2_KEY}"
 
       - name: SSH to EC2 and deploy
