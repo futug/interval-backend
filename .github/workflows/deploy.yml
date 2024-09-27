@@ -36,4 +36,5 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_KEY }}
           source: 'docker-compose.yml'
-          target: '/path/on/your/ec2'
+          target: '/home/ec2-user/
+'
