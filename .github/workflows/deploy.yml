@@ -92,7 +92,13 @@ jobs:
       - name: Run deployment commands on EC2
         run: |
           ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
-            cd /home/ubuntu/interval-backend/
-            docker-compose down
-            docker-compose up -d --build
+            # Ensure Docker is running
+            sudo systemctl start docker
+            
+            # Add user to docker group (if not already done)
+            sudo usermod -aG docker ubuntu
+            
+            # Run Docker commands
+            sudo docker-compose down
+            sudo docker-compose up -d --build
           EOF
