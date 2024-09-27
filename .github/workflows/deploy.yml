@@ -37,3 +37,4 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           source: 'docker-compose.yml'
           target: '/home/ubuntu/interval-backend'
+          debug: true
