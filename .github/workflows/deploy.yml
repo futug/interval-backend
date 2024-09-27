@@ -90,8 +90,9 @@ jobs:
         run: scp -o StrictHostKeyChecking=no docker-compose.yml ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/interval-backend/
 
       - name: Run deployment commands on EC2
-        run: ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
-          cd /home/ubuntu/interval-backend/
-          docker-compose down
-          docker-compose up -d --build
-        EOF
+        run: |
+          ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
+            cd /home/ubuntu/interval-backend/
+            docker-compose down
+            docker-compose up -d --build
+          EOF
