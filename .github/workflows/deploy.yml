@@ -42,7 +42,7 @@ jobs:
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
-          key_path: '~/key.pem'
+          key_path: 'key.pem'
           source: 'docker-compose.yml'
           target: '/home/ubuntu/interval-backend'
           debug: true
