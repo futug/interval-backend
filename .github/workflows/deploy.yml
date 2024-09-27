@@ -39,5 +39,10 @@ jobs:
           target: '/home/ubuntu/interval-backend'
           debug: true
 
-      - name: Debug
-        run: echo "${{ secrets.EC2_KEY }}"
+      - name: Check if EC2_KEY is set
+        run: |
+          if [[ -z "${{ secrets.EC2_KEY }}" ]]; then
+            echo "EC2_KEY is not set!"
+          else
+            echo "EC2_KEY is set."
+          fi
