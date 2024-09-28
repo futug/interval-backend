@@ -38,7 +38,7 @@ jobs:
         run: ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_HOST }} "echo 'Connection successful'"
 
       - name: Copy files to EC2 using scp
-        run: scp -o StrictHostKeyChecking=no docker-compose.yml Dockerfile package.json ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/interval-backend/
+        run: scp -o StrictHostKeyChecking=no docker-compose.yml Dockerfile package.json schema.prisma ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/interval-backend/
 
       - name: Run deployment commands on EC2
         run: |
